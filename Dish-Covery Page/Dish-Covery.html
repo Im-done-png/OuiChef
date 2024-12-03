@@ -3,9 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dish-Covery</title>
+    <link rel="stylesheet" href="Dish-Covery.css">
 </head>
 <body>
-    
+    <header class="header">
+        <div class="logo">
+            <img src="../images/OuiChefText.png" alt="Oui Chef Text Logo">
+        </div>
+        <nav class="nav-bar">
+            <a href="../Dish-Covery Page/Dish-Covery.html">Dish-Covery</a>
+            <a href="../Pricing Page/Pricing.html">Pricing</a>
+            <a href="">About Us</a>
+            <a href="">Events</a>
+        </nav>
+    </header>
+
+    <main class="dishCovery-container">
+        <section class="filters">
+            <h1>Curate Recipes</h1>
+
+            <div class="filter-group">
+                <button class="filter-btn">Ingredients ▼</button>
+                <div class="filter-options-container hidden">
+                    <ul class="filter-options">
+                        <li><button class="add-filter" data-filter="Ingredient 1">+ Ingredient 1</button></li>
+                        <li><button class="add-filter" data-filter="Ingredient 2">+ Ingredient 2</button></li>
+                        <li><button class="add-filter" data-filter="Ingredient 3">+ Ingredient 3</button></li>
+                        <li><button class="add-filter" data-filter="Ingredient 4">+ Ingredient 4</button></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <button class="filter-btn">Dietary Restrictions ▼</button>
+                <div class="filter-options-container hidden">
+                    <ul class="filter-options">
+                        <li><button class="add-filter" data-filter="Restriction 1">+ Restriction 1</button></li>
+                        <li><button class="add-filter" data-filter="Restriction 2">+ Restriction 2</button></li>
+                        <li><button class="add-filter" data-filter="Restriction 3">+ Restriction 3</button></li>
+                        <li><button class="add-filter" data-filter="Restriction 4">+ Restriction 4</button></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <button class="filter-btn">Equipment Available ▼</button>
+                <div class="filter-options-container hidden">
+                    <ul class="filter-options">
+                        <li><button class="add-filter" data-filter="Equipment 1">+ Equipment 1</button></li>
+                        <li><button class="add-filter" data-filter="Equipment 2">+ Equipment 2</button></li>
+                        <li><button class="add-filter" data-filter="Equipment 3">+ Equipment 3</button></li>
+                        <li><button class="add-filter" data-filter="Equipment 4">+ Equipment 4</button></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="selected-options">
+            <h2>Your Selections <button class="clear-btn">Clear All</button></h2>
+            <div class="selected-filters"></div>
+            <button class="generate-btn">Generate</button>
+        </section>
+    </main>
+
+    <script src="Dish-Covery.js"></script>
 </body>
 </html>
