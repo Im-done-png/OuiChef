@@ -1,0 +1,145 @@
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--hue: 223;
+	--primary: hsl(var(--hue),90%,50%); /*color of slider button*/
+	--trans-dur: 0.6s;
+	--trans-timing: cubic-bezier(0.65,0,0.35,1);
+	font-size: calc(60px + (120 - 60) * (100vw - 320px) / (2560 - 320));
+}
+
+body, input {
+	font: 1em/1.5 sans-serif;
+}
+
+body {
+    /*Light mode*/
+	background-color: hsl(var(--hue),10%,90%);
+	color: hsl(var(--hue),10%,10%);
+	display: flex;
+	height: 100vh;
+    /*Dark mode*/
+	transition:
+		background-color var(--trans-dur),
+		color var(--trans-dur);
+}
+
+/*Dark mode colors*/
+body:has(.switch__input:checked) {
+	background-color: hsl(var(--hue),10%,20%);
+	color: hsl(var(--hue),10%,90%);
+}
+
+.switch, .switch__input {
+	display: block;
+	-webkit-tap-highlight-color: transparent;
+}
+
+/*chand position of switch here*/
+.switch {
+	margin: auto;
+	position: relative;
+	user-select: none;
+}
+
+.switch__icon {
+	color: hsla(var(--hue),10%,80%);
+	pointer-events: none;
+	position: absolute;
+	top: 0.375em;
+	left: 0.375em;
+	width: 0.75em;
+	height: 0.75em;
+	transition: color var(--trans-dur);
+}
+
+.switch__icon:nth-of-type(2) {
+	right: 0.375em;
+	left: auto;
+}
+
+/*Change the size for background of slider*/
+.switch__inner, .switch__inner-icons {
+	border-radius: 0.5em;
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	top: 0.25em;
+	left: 0.25em;
+	width: 2.25em;
+	height: 1em;
+}
+
+.switch__inner:before, .switch__inner-icons {
+	transform: translateX(-1.25em);
+	transition: transform var(--trans-dur) var(--trans-timing);
+}
+
+/*change size of the circles*/
+.switch__inner:before {
+	background-color: var(--primary);
+	border-radius: inherit;
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.switch__inner-icons {
+	pointer-events: none;
+}
+
+.switch__inner-icons .switch__icon:first-of-type {
+	transform: translateX(1.25em);
+}
+
+.switch__inner-icons .switch__icon:nth-child(2) {
+	transform: translateX(1.25em);
+}
+
+.switch__input {
+    /*Background color of switch track*/
+	background-color: hsl(0,0%,100%);
+	border-radius: 0.75em;
+	box-shadow:
+		0 0 0 0.0625em hsla(var(--hue),90%,50%,0),
+		0 0.125em 0.5em hsla(var(--hue),10%,10%,0.1);
+	outline: transparent;
+	width: 2.75em;
+	height: 1.5em;
+	appearance: none;
+	transition:
+		background-color var(--trans-dur),
+		box-shadow var(--trans-dur);
+}
+
+.switch__input:checked {
+	background-color: hsl(var(--hue),10%,10%);
+}
+
+.switch__input:checked ~ .switch__icon {
+	color: hsla(var(--hue),10%,40%);
+}
+
+/*change slide distance*/
+.switch__input:checked ~ .switch__inner:before, .switch__input:checked ~ .switch__inner-icons {
+	transform: translateX(1.25em);
+}
+
+.switch__input:focus-visible {
+	box-shadow:
+		0 0 0 0.0625em hsla(var(--hue),90%,50%,1),
+		0 0.125em 0.5em hsla(var(--hue),10%,10%,0.1);
+}
+
+.switch__sr {
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+}
